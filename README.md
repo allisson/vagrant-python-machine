@@ -81,3 +81,22 @@ psql template1 -U vagrant -h localhost
 * Host: localhost
 * Port: 10025
 * TLS: True
+
+
+## Nginx
+
+* Host: 192.168.33.10 (public ip)
+* Port: 80
+* Mapped port: localhost:8000 -> 192.168.33.10:80
+
+
+## Thumbor
+
+* Host: localhost
+* Port: 8888
+
+
+## MongoDB
+
+* Host: localhost
+* Port: 27017
