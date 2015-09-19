@@ -1,0 +1,19 @@
+---
+- name: Import nodesource apt key
+  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
+
+- name: Add nodesource apt repo
+  apt_repository: repo='deb https://deb.nodesource.com/node_4.x trusty main'
+
+- name: Update package list
+  apt: update_cache=yes
+
+- name: Install nodejs package
+  apt: name=nodejs state=present
+
+- name: Install npm packages
+  npm: name={{ item }} global=yes
+  with_items:
+    - grunt-cli
+    - gulp
+    - bower

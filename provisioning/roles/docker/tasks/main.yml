@@ -1,0 +1,12 @@
+---
+- name: Install docker
+  shell: curl -sSL https://get.docker.com/ | sh
+
+- name: Add docker group
+  group: name=docker state=present
+
+- name: Add docker group to vagrant user
+  user: name=vagrant groups=docker append=yes
+
+- name: Start docker service
+  service: name=docker state=started enabled=true

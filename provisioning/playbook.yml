@@ -1,0 +1,23 @@
+---
+- name: Python Machine Setup
+  hosts: default
+  user: vagrant
+  sudo: yes
+
+  roles:
+    - core
+    - supervisor
+    - golang
+    - java
+    - elasticsearch
+    - memcached
+    - mysql
+    - nginx
+    - nodejs
+    - postgresql
+    - python
+    - redis
+    - ruby
+    - thumbor
+    - docker
+    - mongodb

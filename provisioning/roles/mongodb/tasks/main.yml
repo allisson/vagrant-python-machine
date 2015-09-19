@@ -1,0 +1,15 @@
+---
+- name: Import mongodb apt key
+  apt_key: keyserver=keyserver.ubuntu.com id=7F0CEB10
+
+- name: Add mongodb apt repo
+  apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse'
+
+- name: Update package list
+  apt: update_cache=yes
+
+- name: Install mongodb package
+  apt: name=mongodb-org state=present
+
+- name: Start mongodb service
+  service: name=mongod state=started enabled=true

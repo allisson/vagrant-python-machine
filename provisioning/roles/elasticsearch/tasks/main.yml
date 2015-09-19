@@ -1,0 +1,15 @@
+---
+- name: Import elasticsearch apt key
+  apt_key: url=https://packages.elastic.co/GPG-KEY-elasticsearch state=present
+
+- name: Add elasticsearch apt repo 
+  apt_repository: repo='deb http://packages.elastic.co/elasticsearch/1.7/debian stable main' state=present
+
+- name: Update package list
+  apt: update_cache=yes
+
+- name: Install elasticsearch
+  apt: name=elasticsearch state=present
+
+- name: Start elasticsearch service
+  service: name=elasticsearch state=started enabled=true

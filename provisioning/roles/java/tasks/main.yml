@@ -1,0 +1,12 @@
+---
+- name: Add openjdk-8 ppa
+  apt_repository: repo='ppa:openjdk-r/ppa'
+
+- name: Update package list
+  apt: update_cache=yes
+
+- name: Install openjdk-8-jre package
+  apt: name=openjdk-8-jre state=present
+
+- name: Set java version
+  alternatives: name=java path=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java

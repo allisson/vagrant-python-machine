@@ -1,0 +1,18 @@
+---
+- name: Install mysql packages
+  apt: name={{ item }} state=present
+  with_items:
+    - mysql-server
+    - libmysqlclient-dev
+    - python-mysqldb
+
+- name: Start mysql service
+  service: name=mysql state=started enabled=true
+
+- name: Create mysql user
+  mysql_user: name=vagrant password=vagrant host=% state=present priv=*.*:ALL,GRANT
+
+- name: Change my.cnf
+  lineinfile: dest=/etc/mysql/my.cnf regexp="bind-address.*=.*" line="bind-address = 0.0.0.0"
+  notify:
+    - restart mysql

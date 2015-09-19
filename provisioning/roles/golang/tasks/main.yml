@@ -1,0 +1,24 @@
+---
+- name: Check if golang exists
+  stat: path=/usr/bin/go
+  register: check_go_bin
+
+- name: Download godeb
+  get_url:
+    url: "https://godeb.s3.amazonaws.com/godeb-amd64.tar.gz"
+    dest: "/home/vagrant/godeb.tar.gz"
+  when: check_go_bin.stat.exists == false
+
+- name: unzip godeb
+  shell: "tar -C /home/vagrant -zxvf /home/vagrant/godeb.tar.gz"
+  when: check_go_bin.stat.exists == false
+
+- name: install golang
+  shell: "/home/vagrant/godeb install 1.5.1"
+  when: check_go_bin.stat.exists == false
+
+- name: remove godeb files
+  file: path=/home/vagrant/{{ item }} state=absent
+  with_items:
+    - godeb
+    - godeb.tar.gz

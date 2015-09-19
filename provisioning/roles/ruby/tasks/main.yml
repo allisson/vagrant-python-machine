@@ -1,0 +1,35 @@
+---
+- name: Add brightbox ppa
+  apt_repository: repo='ppa:brightbox/ruby-ng'
+
+- name: Update package list
+  apt: update_cache=yes
+
+- name: Install ruby versions
+  apt: name={{ item }} state=present
+  with_items:
+    - ruby1.9.1
+    - ruby1.9.1-dev
+    - ruby2.0
+    - ruby2.0-dev
+    - ruby2.1
+    - ruby2.1-dev
+    - ruby2.2
+    - ruby2.2-dev
+    - ruby-switch
+
+- name: Set default ruby version
+  command: /usr/bin/ruby-switch --set ruby2.2
+  sudo: yes
+
+- name: Install gem packages
+  gem: name={{ item }} state=latest include_dependencies=yes user_install=no
+  with_items:
+    - sass
+    - compass
+    - mailcatcher
+
+- name: Copy mailcatcher supervisor config
+  copy: src=mailcatcher_supervisor.conf dest=/etc/supervisor/conf.d/mailcatcher.conf
+  notify:
+    - update supervisor config

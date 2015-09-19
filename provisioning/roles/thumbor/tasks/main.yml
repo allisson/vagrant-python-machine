@@ -1,0 +1,27 @@
+---
+- name: Install python binding
+  apt: name=python-opencv state=present
+
+- name: Create directory for thumbor
+  file: path=/deploy/sites/thumbor state=directory
+
+- name: Install image optmizers
+  apt: name={{ item }} state=present
+  with_items:
+    - libjpeg-turbo-progs
+    - pngcrush
+
+- name: Install thumbor
+  pip: name={{ item }} virtualenv=/deploy/virtualenvs/thumbor virtualenv_site_packages=yes
+  with_items:
+    - opencv-engine
+    - thumbor
+    - thumbor-plugins
+
+- name: Copy thumbor default config
+  copy: src=thumbor.conf dest=/deploy/sites/thumbor/thumbor.conf
+
+- name: Copy thumbor supervisor config
+  copy: src=supervisor.conf dest=/etc/supervisor/conf.d/thumbor.conf
+  notify:
+    - update supervisor config

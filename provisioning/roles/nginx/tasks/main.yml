@@ -1,0 +1,16 @@
+---
+- name: Install nginx package
+  apt: name=nginx state=present
+
+- name: Start nginx Service
+  service: name=nginx state=started enabled=true
+
+- name: Update nginx default config
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+  notify:
+    - restart nginx
+
+- name: Update nginx default config
+  copy: src=default dest=/etc/nginx/sites-available/default
+  notify:
+    - restart nginx

@@ -1,0 +1,24 @@
+---
+- name: Install postgresql
+  apt: name={{ item }} state=present
+  with_items:
+    - postgresql-9.3-postgis-2.1
+    - libpq-dev
+    - python-psycopg2
+
+- name: Start postgresql service
+  service: name=postgresql state=started enabled=true
+
+- name: Create postgresql user
+  sudo_user: postgres
+  postgresql_user: name=vagrant password=vagrant role_attr_flags=SUPERUSER
+
+- name: Change postgresql.conf
+  lineinfile: dest=/etc/postgresql/9.3/main/postgresql.conf line="listen_addresses = '*'" state=present
+  notify:
+    - restart postgresql
+
+- name: Change pg_hba.conf
+  lineinfile: dest=/etc/postgresql/9.3/main/pg_hba.conf line="host all all 0.0.0.0/0 md5" state=present
+  notify:
+    - restart postgresql

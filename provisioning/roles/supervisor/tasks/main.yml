@@ -1,0 +1,6 @@
+---
+- name: Install supervisor package
+  apt: name=supervisor state=present
+
+- name: Start supervisor service
+  service: name=supervisor state=started enabled=true

@@ -1,0 +1,31 @@
+---
+- name: Update sources.list
+  copy: src=sources.list dest=/etc/apt/sources.list
+
+- name: Update packages
+  apt: update_cache=yes upgrade=dist
+
+- name: Install core packages
+  apt: name={{ item }} state=present
+  with_items:
+    - build-essential
+    - vim
+    - git-core
+    - apt-transport-https
+    - libcurl4-gnutls-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - libsqlite3-dev
+    - unzip
+    - gettext
+
+- name: Remove chef and puppet
+  apt: name={{ item }} state=absent purge=yes
+  with_items:
+    - chef
+    - puppet
+    - puppet-common
+
+- name: Autoremove unused packages
+  command: apt-get -y autoremove
+  sudo: yes
