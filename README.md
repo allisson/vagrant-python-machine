@@ -48,8 +48,11 @@ vagrant up
 
 ## MySQL
 
-User: vagrant
-Password: vagrant
+* User: vagrant
+* Password: vagrant
+* Host: localhost
+* Port: 3306
+
 
 Connect to database:
 
@@ -59,11 +62,22 @@ mysql -uvagrant -pvagrant
 
 ## PostgreSQL
 
-User: vagrant
-Password: vagrant
+* User: vagrant
+* Password: vagrant
+* Host: localhost
+* Port: 5432
+
 
 Connect to database:
 
 ```
 psql template1 -U vagrant -h localhost
 ```
+
+## Mailcatcher
+
+* User: ''
+* Password: ''
+* Host: localhost
+* Port: 10025
+* TLS: True
