@@ -12,7 +12,7 @@ Features:
 * Nodejs
     * grunt/gulp/bower
 * PostgreSQL
-* Python 2.7/2.7/3.2/3.3/3.4/3.5/pypy
+* Python 2.6/2.7/3.2/3.3/3.4/3.5/pypy
 * Ruby 1.9.1/1.9.3/2.0/2.1/2.2
     * sass/compass
     * mailcatcher
@@ -85,7 +85,7 @@ psql template1 -U vagrant -h localhost
 
 ## Nginx
 
-* Host: 192.168.33.10 (public ip)
+* Host: 192.168.33.10 (private_network ip)
 * Port: 80
 * Mapped port: localhost:8000 -> 192.168.33.10:80
 
