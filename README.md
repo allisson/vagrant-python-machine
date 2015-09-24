@@ -16,6 +16,7 @@ Features:
 * Ruby 1.9.1/1.9.3/2.0/2.1/2.2
     * sass/compass
     * mailcatcher
+    * fakes3
 * Redis
 * Supervisor
 * Thumbor
@@ -81,6 +82,7 @@ psql template1 -U vagrant -h localhost
 * Host: localhost
 * Port: 10025
 * TLS: True
+* Web Interface Port: 1080
 
 
 ## Nginx
