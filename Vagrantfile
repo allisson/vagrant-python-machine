@@ -62,7 +62,6 @@ Vagrant.configure(2) do |config|
   # end
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
-    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     vb.name = "python-machine"
   end
   # View the documentation for the provider you are using for more
