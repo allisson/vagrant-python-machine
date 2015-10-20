@@ -1,0 +1,17 @@
+- name: Check if sassc exists
+  stat: path=/usr/local/bin/sassc
+  register: check_sassc_bin
+
+- name: Install libsass dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    - automake
+    - libtool
+
+- name: Copy libsass install script
+  copy: src=libsass-install.bash dest=/home/vagrant/libsass-install.bash owner=vagrant group=vagrant mode=755
+  when: check_sassc_bin.stat.exists == false
+
+- name: Run libsass install script
+  shell: /home/vagrant/libsass-install.bash
+  when: check_sassc_bin.stat.exists == false
