@@ -3,7 +3,7 @@
   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
 
 - name: Add nodesource apt repo
-  apt_repository: repo='deb https://deb.nodesource.com/node_4.x trusty main'
+  apt_repository: repo='deb https://deb.nodesource.com/node_5.x trusty main'
 
 - name: Update package list
   apt: update_cache=yes
