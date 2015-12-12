@@ -1,9 +1,9 @@
 ---
 - name: Import mongodb apt key
-  apt_key: keyserver=keyserver.ubuntu.com id=7F0CEB10
+  apt_key: keyserver=keyserver.ubuntu.com id=EA312927
 
 - name: Add mongodb apt repo
-  apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/stable multiverse'
+  apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse'
 
 - name: Update package list
   apt: update_cache=yes
