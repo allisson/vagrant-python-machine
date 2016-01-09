@@ -19,6 +19,5 @@
     - redis
     - ruby
     - thumbor
-    - docker
     - mongodb
     - libsass
