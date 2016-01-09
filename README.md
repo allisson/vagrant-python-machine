@@ -20,7 +20,6 @@ Features:
 * Redis
 * Supervisor
 * Thumbor
-* Docker
 * MongoDB
 * Go Programming Language
 
