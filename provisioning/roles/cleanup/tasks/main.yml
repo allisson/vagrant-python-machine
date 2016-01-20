@@ -1,0 +1,21 @@
+---
+- name: Remove chef and puppet
+  apt: name={{ item }} state=absent purge=yes
+  with_items:
+    - chef
+    - puppet
+    - puppet-common
+
+- name: Autoremove unused packages
+  command: apt-get -y autoremove
+  sudo: yes
+
+- name: Clean apt
+  command: apt-get clean
+  sudo: yes
+
+- name: Remove godeb.deb
+  file: path=/home/vagrant/go_1.5.3-godeb1_amd64.deb state=absent
+
+- name: Remove libsass-install.bash
+  file: path=/home/vagrant/libsass-install.bash state=absent

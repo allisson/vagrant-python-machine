@@ -1,4 +1,4 @@
 ---
 - name: update supervisor config
-  command: /usr/bin/supervisorctl reread
-  command: /usr/bin/supervisorctl update
+  command: /usr/bin/supervisorctl reread && /usr/bin/supervisorctl update
+  #command: /usr/bin/supervisorctl update

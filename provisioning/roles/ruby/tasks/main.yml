@@ -16,10 +16,12 @@
     - ruby2.1-dev
     - ruby2.2
     - ruby2.2-dev
+    - ruby2.3
+    - ruby2.3-dev
     - ruby-switch
 
 - name: Set default ruby version
-  command: /usr/bin/ruby-switch --set ruby2.2
+  command: /usr/bin/ruby-switch --set ruby2.3
   sudo: yes
 
 - name: Create directory for fakes3
