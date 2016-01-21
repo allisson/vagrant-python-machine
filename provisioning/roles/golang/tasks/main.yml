@@ -22,3 +22,4 @@
   with_items:
     - godeb
     - godeb.tar.gz
+    - go_1.5.3-godeb1_amd64.deb

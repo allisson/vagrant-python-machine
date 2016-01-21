@@ -8,6 +8,7 @@
     - core
     - supervisor
     - golang
+    - mailhog
     - java
     - elasticsearch
     - memcached

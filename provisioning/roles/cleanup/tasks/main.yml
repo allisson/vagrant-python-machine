@@ -13,9 +13,3 @@
 - name: Clean apt
   command: apt-get clean
   sudo: yes
-
-- name: Remove godeb.deb
-  file: path=/home/vagrant/go_1.5.3-godeb1_amd64.deb state=absent
-
-- name: Remove libsass-install.bash
-  file: path=/home/vagrant/libsass-install.bash state=absent

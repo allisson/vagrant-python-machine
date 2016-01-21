@@ -1,4 +1,6 @@
 ---
 - name: update supervisor config
-  command: /usr/bin/supervisorctl reread && /usr/bin/supervisorctl update
-  #command: /usr/bin/supervisorctl update
+  command: "{{ item }}"
+  with_items:
+    - /usr/bin/supervisorctl reread
+    - /usr/bin/supervisorctl update

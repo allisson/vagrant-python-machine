@@ -15,3 +15,6 @@
 - name: Run libsass install script
   shell: /home/vagrant/libsass-install.bash
   when: check_sassc_bin.stat.exists == false
+
+- name: Remove libsass-install.bash
+  file: path=/home/vagrant/libsass-install.bash state=absent

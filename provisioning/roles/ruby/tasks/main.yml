@@ -34,14 +34,6 @@
     - compass
     - fakes3
 
-- name: Install mailcatcher
-  gem: name=mailcatcher version=0.5.12  include_dependencies=yes user_install=no
-
-- name: Copy mailcatcher supervisor config
-  copy: src=mailcatcher_supervisor.conf dest=/etc/supervisor/conf.d/mailcatcher.conf
-  notify:
-    - update supervisor config
-
 - name: Copy fakes3 supervisor config
   copy: src=fakes3_supervisor.conf dest=/etc/supervisor/conf.d/fakes3.conf
   notify:
