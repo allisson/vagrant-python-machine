@@ -8,13 +8,27 @@ Features:
 * Elasticsearch
 * Memcached
 * MySQL
-* Nginx
+* Nginx 
 * Nodejs
-    * grunt/gulp/bower
+    * grunt/gulp/bower/nodemon
 * PostgreSQL
-* Python 2.6/2.7/3.2/3.3/3.4/3.5/pypy
-* Ruby 1.9.1/1.9.3/2.0/2.1/2.2
-    * sass/compass
+    * PostGIS 
+* Python
+    * 2.6
+    * 2.7 (default)
+    * 3.2
+    * 3.3
+    * 3.4
+    * 3.5
+    * pypy
+* Ruby 
+    * 1.9.3
+    * 2.0
+    * 2.1
+    * 2.2
+    * 2.3 (default)
+    * sass
+    * compass
     * fakes3
 * Redis
 * Supervisor
@@ -22,7 +36,6 @@ Features:
 * MongoDB
 * Go Programming Language
 * MailHog
-
 
 ## Requirements
 
@@ -50,46 +63,25 @@ vagrant up
 
 * User: vagrant
 * Password: vagrant
-* Host: localhost
-* Port: 3306
-
-
-Connect to database:
-
-```
-mysql -uvagrant -pvagrant
-```
 
 ## PostgreSQL
 
 * User: vagrant
 * Password: vagrant
-* Host: localhost
-* Port: 5432
-
-
-Connect to database:
-
-```
-psql template1 -U vagrant -h localhost
-```
 
 ## MailHog
 
 * Port: 10025
 * Web Interface Port: 8025
 
-
 ## Nginx
 
 * Port: 80
 * Mapped port: 8000 -> 80
 
-
 ## Thumbor
 
 * Port: 8888
-
 
 ## MongoDB
 
