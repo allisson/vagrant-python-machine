@@ -8,11 +8,14 @@ Features:
 * Elasticsearch
 * Memcached
 * MySQL
-* Nginx 
+* Nginx
 * Nodejs
-    * grunt/gulp/bower/nodemon
+    * grunt
+    * gulp
+    * bower
+    * nodemon
 * PostgreSQL
-    * PostGIS 
+    * PostGIS
 * Python
     * 2.6
     * 2.7 (default)
@@ -21,7 +24,7 @@ Features:
     * 3.4
     * 3.5
     * pypy
-* Ruby 
+* Ruby
     * 1.9.3
     * 2.0
     * 2.1
