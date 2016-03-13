@@ -22,4 +22,5 @@
     - thumbor
     - mongodb
     - libsass
+    - ngrok
     - cleanup

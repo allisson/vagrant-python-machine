@@ -39,6 +39,7 @@ Features:
 * MongoDB
 * Go Programming Language
 * MailHog
+* Ngrok
 
 ## Requirements
 

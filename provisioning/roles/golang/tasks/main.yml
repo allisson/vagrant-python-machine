@@ -10,7 +10,7 @@
   when: check_go_bin.stat.exists == false
 
 - name: unzip godeb
-  shell: "tar -C /home/vagrant -zxvf /home/vagrant/godeb.tar.gz"
+  unarchive: src=/home/vagrant/godeb.tar.gz dest=/home/vagrant copy=no
   when: check_go_bin.stat.exists == false
 
 - name: install golang

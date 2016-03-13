@@ -1,0 +1,17 @@
+---
+- name: Check if ngrok exists
+  stat: path=/usr/local/bin/ngrok
+  register: check_ngrok_bin
+
+- name: Download ngrok
+  get_url:
+    url: "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip"
+    dest: "/home/vagrant/ngrok-stable-linux-amd64.zip"
+  when: check_ngrok_bin.stat.exists == false
+
+- name: unzip ngrok
+  unarchive: src=/home/vagrant/ngrok-stable-linux-amd64.zip dest=/usr/local/bin copy=no
+  when: check_ngrok_bin.stat.exists == false
+
+- name: remove ngrok zip
+  file: path=/home/vagrant/ngrok-stable-linux-amd64.zip state=absent
