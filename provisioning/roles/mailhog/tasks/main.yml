@@ -1,6 +1,6 @@
 ---
 - name: download MailHog
-  get_url: url=https://github.com/mailhog/MailHog/releases/download/v0.1.8/MailHog_linux_amd64 dest=/usr/local/bin/mailhog mode=0755
+  get_url: url=https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64 dest=/usr/local/bin/mailhog mode=0755
 
 - name: Copy MailHog supervisor config
   copy: src=mailhog_supervisor.conf dest=/etc/supervisor/conf.d/mailhog.conf
