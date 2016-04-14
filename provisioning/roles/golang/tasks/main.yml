@@ -14,7 +14,7 @@
   when: check_go_bin.stat.exists == false
 
 - name: install golang
-  shell: "/home/vagrant/godeb install 1.6"
+  shell: "/home/vagrant/godeb install 1.6.1"
   when: check_go_bin.stat.exists == false
 
 - name: remove godeb files
@@ -22,4 +22,4 @@
   with_items:
     - godeb
     - godeb.tar.gz
-    - go_1.6-godeb1_amd64.deb
+    - go_1.6.1-godeb1_amd64.deb
